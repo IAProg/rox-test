@@ -2,7 +2,6 @@ import { Container, Graphics } from "pixi.js";
 import { gameConfig } from "../../config";
 
 export class ColourSelector extends Container {
-    private _selectionPromise: Promise<void>;
     private _selectionContainer: Container;
     private _colourOptions: Graphics[];
     
