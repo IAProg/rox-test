@@ -8,14 +8,13 @@ export class ColourSelector extends Container {
     constructor(){
         super();
 
-        const { buttonPadding, buttonSize } = gameConfig.selectorConfig;
+        const { buttonPadding, buttonSize } = gameConfig.selector;
 
         this._selectionContainer = new Container();
         this._colourOptions = gameConfig.colours.map((colour, index) =>{
             const button = new Sprite(Texture.WHITE);
             button.width = button.height = buttonSize;
             button.x = (buttonSize + buttonPadding) * index
-            button.anchor.set(0.00, 0.50);
             button.tint = colour;
 
             button.on("pointerdown", () => this.onSelect(index), this);

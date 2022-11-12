@@ -7,13 +7,13 @@ export class TextFields extends Container {
     
     constructor(){
         super();
-        const style = gameConfig.textFields.style;
+        const { style, padding } = gameConfig.textFields;
         this._timeText  = new Text("placeholder", style);
         this._timeText.anchor.set(0.5, 0.00);
 
         this._scoreText = new Text("placeholder", style);
         this._scoreText.anchor.set(0.5, 0.00);
-        this._scoreText.y = this._timeText.height;
+        this._scoreText.y = this._timeText.getBounds().bottom +  this._timeText.height * padding;
 
         this.addChild(this._timeText, this._scoreText);
     }
