@@ -1,17 +1,19 @@
 import { Application } from "pixi.js";
+import { gameConfig } from "../config";
 import { Gameboard } from "./game-board";
 import { ResultBoard } from "./result-board";
-
-const CANVAS_WIDTH = 700;
-const CANVAS_HEIGHT = 1000;
 
 export class RoxApp extends Application {
     private _gameboard: Gameboard;
     private _resultBoard: ResultBoard;
 
     constructor(){
-        super({ width: CANVAS_WIDTH, height: CANVAS_HEIGHT })
-        // init components
+        super(gameConfig.canvas)
+        this._gameboard = new Gameboard();
+
+        this.stage.addChild(this._gameboard);
+
+        this.scaleContent(gameConfig.canvas.width, gameConfig.canvas.height);
     }
 
     public async onBegin(): Promise<void>{
@@ -22,7 +24,7 @@ export class RoxApp extends Application {
         //
     }
 
-    public resize(): void{
-        //
+    public scaleContent(width: number, height: number): void{
+        this._gameboard.resize(width, height);
     }
 }
