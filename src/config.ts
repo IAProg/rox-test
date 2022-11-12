@@ -7,7 +7,7 @@ export const gameConfig = {
         0xffa500
     ],
     selectorConfig: {
-        buttonRadius: 25,
-        buttonPadding: 10,
+        buttonSize: 50,
+        buttonPadding: 5,
     }
 }
