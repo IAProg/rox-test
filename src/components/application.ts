@@ -1,6 +1,6 @@
 import { Application } from "pixi.js";
-import { Gameboard } from "./gameboard";
-import { ResultBoard } from "./results";
+import { Gameboard } from "./game-board";
+import { ResultBoard } from "./result-board";
 
 const CANVAS_WIDTH = 700;
 const CANVAS_HEIGHT = 1000;
