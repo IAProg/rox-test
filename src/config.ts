@@ -3,7 +3,11 @@ import { IApplicationOptions, TextStyle } from "pixi.js";
 export const gameConfig = {
     canvas:{
         width: 700,
-        height: 1000
+        height: 1000,
+        antialiasing: true,
+        autoDensity: true,
+        resolution: 2
+
     } as IApplicationOptions,
     colours: [
         0xff0000,
@@ -18,11 +22,11 @@ export const gameConfig = {
         selectorPadding: 0.05
     },
     selector: {
-        buttonSize: 30,
+        buttonSize: 25,
         buttonPadding: 5
     },
     disc: {
-        size: 150
+        size: 75
     },
     textFields: {
         padding: 0.1,
