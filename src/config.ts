@@ -10,11 +10,11 @@ export const gameConfig = {
 
     } as IApplicationOptions,
     colours: [
-        0xff0000,
-        0x0000ff,
-        0x00ff00,
-        0xffff00,
-        0xffa500
+        0xe43b44,
+        0x0099db,
+        0x63c74d,
+        0xfee761,
+        0xf77622
     ],
     gameboard:{
         padding: 1.25,
