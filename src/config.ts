@@ -18,8 +18,8 @@ export const gameConfig = {
     ],
     gameboard:{
         padding: 1.25,
-        textPos:     { x: 0.00, y: -400.00 },
-        discPos:     { x: 0.00, y:    0.00 },
+        textPos:     { x: 0.00, y: -475.00 },
+        discPos:     { x: 0.00, y:   25.00 },
         selectorPos: { x: 0.00, y:  300.00 }
     },
     selector: {
@@ -33,6 +33,7 @@ export const gameConfig = {
         padding: 0.1,
         style: {
             fill: 0xffffff,
+            fontSize: 100,
             align: "center"
         } as TextStyle
     }
