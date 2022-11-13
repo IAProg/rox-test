@@ -1,6 +1,7 @@
+import { loadAssets } from "./asset-loader";
 import { RoxApp } from "./components/application";
 
-const app = new RoxApp();
-
-document.body.appendChild(app.view);
-
+loadAssets().then(() => {
+    const app = new RoxApp();
+    document.body.appendChild(app.view);
+})
