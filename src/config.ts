@@ -17,17 +17,17 @@ export const gameConfig = {
         0xffa500
     ],
     gameboard:{
-        padding: 1.50,
-        textPos:     { x: 0.00, y:   0.00 },
-        discPos:     { x: 0.00, y:  75.00 },
-        selectorPos: { x: 0.00, y: 190.00 }
+        padding: 1.25,
+        textPos:     { x: 0.00, y: -400.00 },
+        discPos:     { x: 0.00, y:    0.00 },
+        selectorPos: { x: 0.00, y:  300.00 }
     },
     selector: {
-        buttonSize: 25,
+        buttonSize: 100,
         buttonPadding: 5
     },
     disc: {
-        size: 100
+        size: 500
     },
     textFields: {
         padding: 0.1,

@@ -7,7 +7,7 @@ export class ColourDisc extends Container {
     constructor(){
         super();
         this._disc = new Sprite(Texture.WHITE);
-        this._disc.anchor.set(0.50, 0.00);
+        this._disc.anchor.set(0.50);
         
         const discSize = gameConfig.disc.size;
         this._disc.scale.set(discSize / this._disc.width);
