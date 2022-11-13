@@ -1,19 +1,17 @@
-import { Loader, Texture } from "pixi.js";
+import { ILoaderResource, Loader, Texture } from "pixi.js";
 import { ITextureAsset } from "./types";
 
 const textureList = [
-    { name: "background", url: "background.png"}
+    { name: "background", url: "background.png"},
+    { name: "gameboard", url: "gameboard.png"}
 ] as Array<ITextureAsset>
 
 export function loadAssets(): Promise<void>{
     const loader = Loader.shared;
     loader.baseUrl = "assets/";
 
-    for ( const texture of textureList ){
-        loader.add(texture.name, texture.url);
-    }
-
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
+        loader.add(textureList);
         loader.load(() => resolve());
     });
 }
