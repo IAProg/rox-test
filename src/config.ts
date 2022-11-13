@@ -18,15 +18,16 @@ export const gameConfig = {
     ],
     gameboard:{
         padding: 1.50,
-        textFieldPadding: 0.1,
-        selectorPadding: 0.05
+        textPos:     { x: 0.00, y:   0.00 },
+        discPos:     { x: 0.00, y:  75.00 },
+        selectorPos: { x: 0.00, y: 190.00 }
     },
     selector: {
         buttonSize: 25,
         buttonPadding: 5
     },
     disc: {
-        size: 75
+        size: 100
     },
     textFields: {
         padding: 0.1,

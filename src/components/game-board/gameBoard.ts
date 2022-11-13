@@ -20,15 +20,17 @@ export class Gameboard extends Container {
         this._colourDisc = new ColourDisc();
         this._textFields = new TextFields();
 
-        const { selectorPadding, textFieldPadding, padding } = gameConfig.gameboard;
-        this._colourDisc.y     = this._textFields.getBounds().bottom + (this._textFields.height * textFieldPadding);
-        this._colourSelector.y = this._colourDisc.getBounds().bottom + (this._colourDisc.height * selectorPadding);
+        const { selectorPos, textPos, discPos, padding } = gameConfig.gameboard;
+        this._colourSelector.position.set(selectorPos.x, selectorPos.y);
+        this._colourDisc.position.set(discPos.x, discPos.y);
+        this._textFields.position.set(textPos.x, textPos.y);
+
 
         this.addChild(this._colourSelector, this._colourDisc, this._textFields);
 
         this.size = {
-            width:  padding * this.width,
-            height: padding * this.height
+            width:  this.width,
+            height: this.height
         }
     }
 
