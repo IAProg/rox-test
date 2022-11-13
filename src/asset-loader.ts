@@ -1,4 +1,4 @@
-import { Loader } from "pixi.js";
+import { Loader, Texture } from "pixi.js";
 import { ITextureAsset } from "./types";
 
 const textureList = [
@@ -16,4 +16,12 @@ export function loadAssets(): Promise<void>{
     return new Promise(resolve => {
         loader.load(() => resolve());
     });
+}
+
+export function getTexture(textureName: string): Texture{
+    const texture = Loader.shared.resources[textureName].texture;
+    if (texture){
+        return texture;
+    }
+    throw `could not find texture ${textureName}`
 }
