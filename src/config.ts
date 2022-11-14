@@ -42,11 +42,20 @@ export const gameConfig = {
     },
     textFields: {
         padding: 0.1,
+        labelStyle: {
+            fill: 0xffffff,
+            fontSize: 40,
+            align: "center"
+        } as TextStyle,
         style: {
             fill: 0xffffff,
             fontSize: 100,
             align: "center"
-        } as TextStyle
+        } as TextStyle,
+        scoreTextPos:  { x: 0.00, y: 150.00 },
+        scoreLabelPos: { x: 0.00, y: 130.00 },
+        timeTextPos:   { x: 0.00, y:  30.00 },
+        timeLabelPos:  { x: 0.00, y:   0.00 },
     }
 }
 
