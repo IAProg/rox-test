@@ -22,6 +22,17 @@ export const gameConfig = {
         discPos:     { x: 0.00, y:   25.00 },
         selectorPos: { x: 0.00, y:  300.00 }
     },
+    results:{
+        padding: 1.25,
+        fadeDuration: 1,
+        amountPos:  { x: 0.00, y: -300.00 },
+        messagePos: { x: 0.00, y: -475.00 },
+        style: {
+            fill: 0xffffff,
+            fontSize: 80,
+            align: "center"
+        } as TextStyle
+    },
     selector: {
         buttonSize: 100,
         buttonPadding: 5
@@ -36,5 +47,11 @@ export const gameConfig = {
             fontSize: 100,
             align: "center"
         } as TextStyle
+    }
+}
+
+export const strings = {
+    results: {
+        message: "YOU WON:"
     }
 }
