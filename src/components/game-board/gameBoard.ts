@@ -1,6 +1,7 @@
-import { Container, Sprite } from "pixi.js";
+import { Container, Sprite, Ticker } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
+import { delay } from "../../utils";
 import { ColourDisc } from "./colour-disc";
 import { ColourSelector } from "./colour-selector";
 import { TextFields } from "./text-fields";
@@ -11,6 +12,9 @@ export class Gameboard extends Container {
     private _colourSelector: ColourSelector;
     private _colourDisc: ColourDisc;
     private _textFields: TextFields;
+
+    private _inPlay: boolean = false;
+    private _score: number; 
 
     private size: {
         width: number,
@@ -39,9 +43,23 @@ export class Gameboard extends Container {
         }
     }
 
+    public preconfigure(): void{
+        this._textFields.reset();
+        this._score = 0;
+    }
+
     public async play(): Promise<number>{
-        
-        
+        await this._colourSelector.awaitSelection();
+                
+        this._inPlay = true;
+        const timer = this.startTimer();
+
+        while (this._inPlay){
+            await this._colourDisc.spinTo(this._colourSelector.selection);
+            
+            await Promise.race([this._colourSelector.awaitSelection(), timer]);
+        }
+
         return 0;
     }
 
@@ -55,5 +73,10 @@ export class Gameboard extends Container {
             width * 0.50,
             height * 0.50
         )
+    }
+
+    private async startTimer(): Promise<void>{
+        await delay(2000);
+        this._inPlay = false;
     }
 }
