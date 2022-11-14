@@ -36,16 +36,17 @@ export class ResultBoard extends Container {
             height: padding * this.height
         }
 
-        this.interactive = true;
         this.alpha = 0;
     }
 
     public async show(score: number): Promise<void>{
         this._amount.text = String(score);
         const { fadeDuration } = gameConfig.results;
+        this.interactive = true;
         await asyncTween(this, { duration: fadeDuration, alpha: 1 });
         await this.awaitPress();
         await asyncTween(this, { duration: fadeDuration, alpha: 0 });
+        this.interactive = false;
     }
 
     public resize(width: number, height: number): void{
