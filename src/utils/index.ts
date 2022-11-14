@@ -9,3 +9,7 @@ export async function asyncTween (targets: gsap.TweenTarget, vars: gsap.TweenVar
         gsap.to(targets, vars)
     });
 }
+
+export const delay = (ms: number) => new Promise<void>(
+    (resolve) => setTimeout(resolve, ms)
+);
