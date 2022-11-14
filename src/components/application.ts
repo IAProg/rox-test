@@ -20,18 +20,7 @@ export class RoxApp extends Application {
 
         this.scaleContent(gameConfig.canvas.width, gameConfig.canvas.height);
 
-        this.onBegin();
-    }
-
-    public async onBegin(): Promise<void>{
-        //
-
-        await delay(1000);
-        this._resultBoard.show(10);
-    }
-
-    public async onEnd(): Promise<void>{
-        //
+        this.play();
     }
 
     public scaleContent(width: number, height: number): void{
@@ -39,4 +28,15 @@ export class RoxApp extends Application {
         this._background.resize(width, height);
         this._resultBoard.resize(width, height);
     }
+
+    private async play(): Promise<void>{
+        const score = await this._gameboard.play();
+        await this._resultBoard.show(score);
+
+        this.play();
+    }
+
+
+
+
 }

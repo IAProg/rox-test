@@ -39,6 +39,12 @@ export class Gameboard extends Container {
         }
     }
 
+    public async play(): Promise<number>{
+        
+        
+        return 0;
+    }
+
     public resize(width: number, height: number): void{
         this.scale.set(Math.min(
             width  / this.size.width,
