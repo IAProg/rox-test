@@ -30,6 +30,7 @@ export class RoxApp extends Application {
     }
 
     private async play(): Promise<void>{
+        this._gameboard.preconfigure();
         const score = await this._gameboard.play();
         await this._resultBoard.show(score);
 
