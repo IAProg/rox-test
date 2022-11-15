@@ -1,6 +1,8 @@
 import { Container, Sprite, Ticker } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
+import { requestData } from "../../requests";
+import { ticketModel } from "../../ticketModel";
 import { delay } from "../../utils";
 import { ColourDisc } from "./colour-disc";
 import { ColourSelector } from "./colour-selector";
@@ -43,7 +45,8 @@ export class Gameboard extends Container {
         }
     }
 
-    public preconfigure(): void{
+    public async preconfigure(): Promise<void>{
+        ticketModel.setData(await requestData());
         this._textFields.reset();
         this._score = 0;
     }

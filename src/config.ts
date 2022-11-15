@@ -1,6 +1,9 @@
 import { IApplicationOptions, TextStyle } from "pixi.js";
 
 export const gameConfig = {
+    request: {
+        colourCount: 10 // the most points a player can score in 20 seconds
+    },
     canvas:{
         width: 700,
         height: 1000,
