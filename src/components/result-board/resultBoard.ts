@@ -39,13 +39,18 @@ export class ResultBoard extends Container {
         this.alpha = 0;
     }
 
-    public async show(score: number): Promise<void>{
-        this._amount.text = String(score);
-        const { fadeDuration } = gameConfig.results;
+    public updateValue(scoreValue: number): void{
+        this._amount.text = String(scoreValue);
+    }
+
+    public async setFade(isOn: boolean): Promise<void>{
+        const newAlpha = isOn ? 1 : 0;
+        return asyncTween(this, { duration: 1, alpha: newAlpha });
+    }
+
+    public async awaitPress(): Promise<void>{
         this.interactive = true;
-        await asyncTween(this, { duration: fadeDuration, alpha: 1 });
-        await this.awaitPress();
-        await asyncTween(this, { duration: fadeDuration, alpha: 0 });
+        await new Promise((resolve) => this.once("pointerdown", resolve))
         this.interactive = false;
     }
 
@@ -59,9 +64,5 @@ export class ResultBoard extends Container {
             width * 0.50,
             height * 0.50
         )
-    }
-
-    private awaitPress(): Promise<void>{
-        return new Promise((resolve) => this.on("pointerdown", resolve))
     }
 }
