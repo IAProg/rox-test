@@ -55,12 +55,13 @@ export class Gameboard extends Container {
         const timer = this.startTimer();
 
         while (this._inPlay){
-            await this._colourDisc.spinTo(this._colourSelector.selection);
-            
-            await Promise.race([this._colourSelector.awaitSelection(), timer]);
+            if (await this._colourDisc.checkWin(this._colourSelector.selection)){
+                this._score++
+            }
+            await Promise.race([this._colourSelector.awaitSelection(), timer]); // wait for selection or game end - whichever comes first 
         }
 
-        return 0;
+        return this._score;
     }
 
     public resize(width: number, height: number): void{
@@ -76,7 +77,7 @@ export class Gameboard extends Container {
     }
 
     private async startTimer(): Promise<void>{
-        await delay(2000);
+        await delay(20000);
         this._inPlay = false;
     }
 }
