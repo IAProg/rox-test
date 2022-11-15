@@ -53,15 +53,22 @@ export class Gameboard extends Container {
 
     public async play(): Promise<number>{
         await this._colourSelector.awaitSelection();
+        let selection = this._colourSelector.selection;
+        let cycleColour = ticketModel.nextColour;
                 
         this._inPlay = true;
         const timer = this.startTimer();
         this._textFields.countDown();
 
         while (this._inPlay){
-            if (await this._colourDisc.checkWin(this._colourSelector.selection)){
+            selection = this._colourSelector.selection;
+            cycleColour = ticketModel.nextColour;
+            await this._colourDisc.cycleTo(cycleColour);
+
+            if ( cycleColour === selection ){ // update score if won
                 this._textFields.setScore(this._score++);
             }
+ 
             await Promise.race([this._colourSelector.awaitSelection(), timer]); // wait for selection or game end - whichever comes first 
         }
 

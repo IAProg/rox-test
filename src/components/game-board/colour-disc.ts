@@ -15,7 +15,7 @@ export class ColourDisc extends Container {
         this.addChild(this._disc);
     }
 
-    public async checkWin(colour: number): Promise<boolean>{
+    public async cycleTo(colour: number): Promise<boolean>{
         this._disc.tint = gameConfig.colours[colour];
 
         return false;
