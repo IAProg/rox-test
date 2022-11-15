@@ -56,6 +56,7 @@ export class Gameboard extends Container {
                 
         this._inPlay = true;
         const timer = this.startTimer();
+        this._textFields.countDown();
 
         while (this._inPlay){
             if (await this._colourDisc.checkWin(this._colourSelector.selection)){

@@ -1,11 +1,13 @@
 import { Container, Text } from "pixi.js";
 import { gameConfig } from "../../config";
+import { delay } from "../../utils";
 
 export class TextFields extends Container {
     private _timeLabel: Text;
     private _timeText: Text;
     private _scoreLabel: Text;
     private _scoreText: Text;
+    private _timeNum: number;
     
     constructor(){
         super();
@@ -31,11 +33,21 @@ export class TextFields extends Container {
     }
 
     public reset(): void{
-        this._timeText.text  = "0";
+        this._timeNum = 20;
+        this._timeText.text  = "20";
         this._scoreText.text = "0"
     }
 
     public setScore(score: number): void{
         this._scoreText.text = String(score);
+    }
+
+    public async countDown(): Promise<void>{
+        await delay(1000);
+        this._timeNum--
+        this._timeText.text = String(this._timeNum);
+        if ( this._timeNum > 0 ){
+            this.countDown();
+        }
     }
 }
