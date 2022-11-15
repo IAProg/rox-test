@@ -47,7 +47,7 @@ export class ColourSelector extends Container {
     private setEnabled(enabled: boolean): void{
         const alpha = enabled ? 1.00 : 0.50;
         this._colourOptions.forEach(option => {
-            option.interactive = enabled;
+            option.interactive = option.buttonMode = enabled;
             option.alpha = alpha;
         });
 
