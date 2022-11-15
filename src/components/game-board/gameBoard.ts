@@ -65,8 +65,8 @@ export class Gameboard extends Container {
             cycleColour = ticketModel.nextColour;
             await this._colourWheel.cycleTo(cycleColour);
 
-            if ( cycleColour === selection ){ // update score if won
-                this._textFields.setScore(this._score++);
+            if ( cycleColour === selection ){ // update score if selection matches ticket value
+                this._textFields.setScore(this._score += 1);
             }
  
             await Promise.race([this._colourSelector.awaitSelection(), timer]); // wait for selection or game end - whichever comes first 
