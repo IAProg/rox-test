@@ -3,7 +3,7 @@ import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
 import { requestData } from "../../requests";
 import { ticketModel } from "../../ticketModel";
-import { delay } from "../../utils";
+import { asyncTween, delay } from "../../utils";
 import { ColourWheel } from "./colour-wheel";
 import { ColourSelector } from "./colour-selector";
 import { TextFields } from "./text-fields";
@@ -43,12 +43,18 @@ export class Gameboard extends Container {
             width:  padding * this.width,
             height: padding * this.height
         }
+
+        this.alpha = 0;
     }
 
     public async preconfigure(): Promise<void>{
-        ticketModel.setData(await requestData());
         this._textFields.reset();
         this._score = 0;
+    }
+
+    public async setFade(isOn: boolean): Promise<void>{
+        const newAlpha = isOn ? 1 : 0;
+        return asyncTween(this, { duration: 1, alpha: newAlpha });
     }
 
     public async play(): Promise<number>{
