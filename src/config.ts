@@ -30,9 +30,15 @@ export const gameConfig = {
         fadeDuration: 1,
         amountPos:  { x: 0.00, y:  -80.00 },
         messagePos: { x: 0.00, y: -180.00 },
-        style: {
+        replayPos:  { x: 0.00, y:   80.00 },
+        scoreStyle: {
             fill: 0xffffff,
             fontSize: 80,
+            align: "center"
+        } as TextStyle,
+        replayStyle: {
+            fill: 0xffffff,
+            fontSize: 40,
             align: "center"
         } as TextStyle
     },
@@ -68,6 +74,7 @@ export const gameConfig = {
 
 export const strings = {
     results: {
-        message: "YOUR SCORE:"
+        message: "YOUR SCORE:",
+        replay: "PLAY AGAIN"
     }
 }
