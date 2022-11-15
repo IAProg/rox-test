@@ -1,7 +1,7 @@
 import { Application } from "pixi.js";
 import { gameConfig } from "../config";
 import { requestData } from "../requests";
-import { ticketModel } from "../ticketModel";
+import { ticketModel } from "../ticket-model";
 import { delay } from "../utils";
 import { Background } from "./background";
 import { Gameboard } from "./game-board";

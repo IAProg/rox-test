@@ -2,7 +2,7 @@ import { Container, Sprite, Ticker } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
 import { requestData } from "../../requests";
-import { ticketModel } from "../../ticketModel";
+import { ticketModel } from "../../ticket-model";
 import { asyncTween, delay } from "../../utils";
 import { ColourWheel } from "./colour-wheel";
 import { ColourSelector } from "./colour-selector";
