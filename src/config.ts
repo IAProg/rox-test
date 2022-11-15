@@ -41,7 +41,11 @@ export const gameConfig = {
         buttonPadding: 5
     },
     disc: {
-        size: 500
+        spinnerDiameter: 500,
+        spinsMin: 2,
+        spinsMax: 3,
+        missMin: 0.10,
+        missMax: 0.10,
     },
     textFields: {
         padding: 0.1,

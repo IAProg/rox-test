@@ -3,6 +3,7 @@ import { ITextureAsset } from "./types";
 
 const textureList = [
     { name: "background", url: "background.png"},
+    { name: "pointer", url: "pointer.png"},
     { name: "gameboard", url: "gameboard.png"}
 ] as Array<ITextureAsset>
 

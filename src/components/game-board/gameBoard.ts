@@ -4,7 +4,7 @@ import { gameConfig } from "../../config";
 import { requestData } from "../../requests";
 import { ticketModel } from "../../ticketModel";
 import { delay } from "../../utils";
-import { ColourDisc } from "./colour-disc";
+import { ColourWheel } from "./colour-wheel";
 import { ColourSelector } from "./colour-selector";
 import { TextFields } from "./text-fields";
 
@@ -12,7 +12,7 @@ export class Gameboard extends Container {
 
     private _backdrop: Sprite;
     private _colourSelector: ColourSelector;
-    private _colourDisc: ColourDisc;
+    private _colourWheel: ColourWheel;
     private _textFields: TextFields;
 
     private _inPlay: boolean = false;
@@ -29,15 +29,15 @@ export class Gameboard extends Container {
         this._backdrop.anchor.set(0.50);
 
         this._colourSelector = new ColourSelector();
-        this._colourDisc = new ColourDisc();
+        this._colourWheel = new ColourWheel();
         this._textFields = new TextFields();
 
         const { selectorPos, textPos, discPos, padding } = gameConfig.gameboard;
         this._colourSelector.position.set(selectorPos.x, selectorPos.y);
-        this._colourDisc.position.set(discPos.x, discPos.y);
+        this._colourWheel.position.set(discPos.x, discPos.y);
         this._textFields.position.set(textPos.x, textPos.y);
 
-        this.addChild(this._backdrop, this._colourSelector, this._colourDisc, this._textFields);
+        this.addChild(this._backdrop, this._colourSelector, this._colourWheel, this._textFields);
 
         this.size = {
             width:  padding * this.width,
@@ -63,7 +63,7 @@ export class Gameboard extends Container {
         while (this._inPlay){
             selection = this._colourSelector.selection;
             cycleColour = ticketModel.nextColour;
-            await this._colourDisc.cycleTo(cycleColour);
+            await this._colourWheel.cycleTo(cycleColour);
 
             if ( cycleColour === selection ){ // update score if won
                 this._textFields.setScore(this._score++);
