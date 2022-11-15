@@ -9,6 +9,7 @@ const textureList = [
     { name: "btn2", url: "btn2.png"},
     { name: "btn3", url: "btn3.png"},
     { name: "btn4", url: "btn4.png"},
+    { name: "btnReplay", url: "btnReplay.png"},
     { name: "gameboard", url: "gameboard.png"},
     { name: "resultboard", url: "resultsboard.png"}
 ] as Array<ITextureAsset>
