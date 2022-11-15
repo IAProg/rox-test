@@ -47,6 +47,7 @@ export const gameConfig = {
         buttonPadding: 5
     },
     disc: {
+        radius: 250,
         spinnerDiameter: 500,
         spinsMin: 4,
         spinsMax: 8,

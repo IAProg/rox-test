@@ -1,5 +1,5 @@
 import gsap from "gsap";
-import { Container, Graphics, Sprite, Texture } from "pixi.js";
+import { Container, Graphics, Sprite } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
 import { randomFloat, randomInt } from "../../utils";
@@ -16,21 +16,23 @@ export class ColourWheel extends Container {
     
     constructor(){
         super();
+        const { radius } = gameConfig.disc;
 
         this._spinner = new Graphics();
 
         const colourCount = gameConfig.colours.length;
         this._rotationStep = TAU / colourCount;
         const halfStep = this._rotationStep / 2;
-        const radius = 250;
 
+        // construct a graphic representing the spinner disc
         let index = 0;
         for ( let i = 0; i < TAU; i+=this._rotationStep ){
             this._spinner.beginFill(gameConfig.colours[index])
             .drawPolygon([
                 { x: 0, y: 0 },
                 { x: Math.sin(i + halfStep) * radius, y: Math.cos(i + halfStep) * radius },
-                { x: Math.sin(i - halfStep) * radius, y: Math.cos(i - halfStep) * radius }
+                { x: Math.sin(i           ) * radius, y: Math.cos(i           ) * radius },
+                { x: Math.sin(i - halfStep) * radius, y: Math.cos(i - halfStep) * radius },
             ]);
             index++;
         }
