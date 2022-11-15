@@ -1,4 +1,4 @@
-import { Container, Sprite, Texture } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
 

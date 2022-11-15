@@ -1,7 +1,6 @@
-import { Container, Sprite, Ticker } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
-import { requestData } from "../../requests";
 import { ticketModel } from "../../ticket-model";
 import { asyncTween, delay } from "../../utils";
 import { ColourWheel } from "./colour-wheel";
@@ -9,7 +8,6 @@ import { ColourSelector } from "./colour-selector";
 import { TextFields } from "./text-fields";
 
 export class Gameboard extends Container {
-
     private _backdrop: Sprite;
     private _colourSelector: ColourSelector;
     private _colourWheel: ColourWheel;

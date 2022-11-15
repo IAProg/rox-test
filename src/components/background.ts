@@ -1,4 +1,4 @@
-import { Container, Loader, Sprite } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 import { getTexture } from "../asset-loader";
 
 export class Background extends Container {

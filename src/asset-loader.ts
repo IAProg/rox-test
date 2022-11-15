@@ -1,4 +1,4 @@
-import { ILoaderResource, Loader, Texture } from "pixi.js";
+import { Loader, Texture } from "pixi.js";
 import { ITextureAsset } from "./types";
 
 const textureList = [
