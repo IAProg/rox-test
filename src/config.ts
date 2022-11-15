@@ -42,10 +42,10 @@ export const gameConfig = {
     },
     disc: {
         spinnerDiameter: 500,
-        spinsMin: 2,
-        spinsMax: 3,
-        missMin: 0.10,
-        missMax: 0.10,
+        spinsMin: 4,
+        spinsMax: 8,
+        missMin: 0.20,
+        missMax: 0.45,
     },
     textFields: {
         padding: 0.1,
