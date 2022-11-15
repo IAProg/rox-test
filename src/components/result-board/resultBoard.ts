@@ -16,7 +16,7 @@ export class ResultBoard extends Container {
     
     constructor(){
         super();
-        this._backdrop = new Sprite(getTexture("gameboard"));
+        this._backdrop = new Sprite(getTexture("resultboard"));
         this._backdrop.anchor.set(0.50);
         
         const { padding, style, amountPos, messagePos } = gameConfig.results;
