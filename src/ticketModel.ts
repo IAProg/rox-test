@@ -1,7 +1,6 @@
 import { IResponseData } from "./types";
 
 class TicketModel{
-
     private _colours: Array<number>;
     private _colourIndex: number;
 
@@ -16,3 +15,5 @@ class TicketModel{
         this._colourIndex = 0;
     }
 }
+
+export const ticketModel = new TicketModel();
