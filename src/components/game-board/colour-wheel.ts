@@ -60,9 +60,10 @@ export class ColourWheel extends Container {
         const missRotation = (this._rotationStep * randomFloat(missMin, missMax));
         const firstRotation = endRotation + missRotation * sign;
 
+
         // these values should be propotional to rotation but have been capped at 2 seconds to meet spec
-        const spinDuration = 1.5; 
-        const correctionDuration = 0.5; 
+        const spinDuration = 1.50; 
+        const correctionDuration = 0.50; 
  
         await new Promise<void>((resolve) => {
             this._cycleTL?.progress(1); // skip the last cycle if there is one somehow playing
