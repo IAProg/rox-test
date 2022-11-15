@@ -56,7 +56,7 @@ export class Gameboard extends Container {
 
         while (this._inPlay){
             if (await this._colourDisc.checkWin(this._colourSelector.selection)){
-                this._score++
+                this._textFields.setScore(this._score++);
             }
             await Promise.race([this._colourSelector.awaitSelection(), timer]); // wait for selection or game end - whichever comes first 
         }
