@@ -28,8 +28,8 @@ export const gameConfig = {
     results:{
         padding: 1.25,
         fadeDuration: 1,
-        amountPos:  { x: 0.00, y: -300.00 },
-        messagePos: { x: 0.00, y: -475.00 },
+        amountPos:  { x: 0.00, y:  -80.00 },
+        messagePos: { x: 0.00, y: -180.00 },
         style: {
             fill: 0xffffff,
             fontSize: 80,
@@ -68,6 +68,6 @@ export const gameConfig = {
 
 export const strings = {
     results: {
-        message: "YOU WON:"
+        message: "YOUR SCORE:"
     }
 }
