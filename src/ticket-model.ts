@@ -1,5 +1,8 @@
 import { IResponseData } from "./types";
 
+/**
+ * Stores and formats game data recieved from a game server to the client. 
+ */
 class TicketModel{
     private _colours: Array<number>;
     private _colourIndex: number;

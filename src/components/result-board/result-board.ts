@@ -3,6 +3,9 @@ import { getTexture } from "../../asset-loader";
 import { gameConfig, strings } from "../../config";
 import { asyncTween } from "../../utils";
 
+/**
+ * The results board represents the post game popup. It presents the users score and a replay button
+ */
 export class ResultBoard extends Container {
     private _backdrop: Sprite;
     private _message: Text;

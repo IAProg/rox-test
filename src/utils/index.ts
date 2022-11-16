@@ -1,5 +1,8 @@
 import gsap from "gsap";
 
+/**
+ * A gsap tween wrapper allowing a tween to treated as a promise without writing extra code
+ */
 export async function asyncTween (targets: gsap.TweenTarget, vars: gsap.TweenVars): Promise<void>{
     return new Promise(resolve => {
         vars.onComplete = () => {

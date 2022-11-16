@@ -7,6 +7,10 @@ import { Background } from "./background";
 import { Gameboard } from "./game-board";
 import { ResultBoard } from "./result-board";
 
+/**
+ * The core of the application. 
+ * The application is responsible for managing sub components of the game and conducting high level game flow
+ */
 export class RoxApp extends Application {
     private _background: Background;
     private _gameboard: Gameboard;
@@ -26,6 +30,9 @@ export class RoxApp extends Application {
         this.play();
     }
 
+    /**
+     * While not demonstrated in this demo the components are constructed to support multiple aspect ratios
+    */
     public scaleContent(width: number, height: number): void{
         this._gameboard.resize(width, height);
         this._background.resize(width, height);
@@ -36,7 +43,7 @@ export class RoxApp extends Application {
     private async play(): Promise<void>{
         while( this._inPlay ){
             //setup
-            ticketModel.setData(await requestData());
+            ticketModel.setData(await requestData()); // request and store a new set of ticket data
             this._gameboard.preconfigure();
 
             //play
@@ -44,13 +51,16 @@ export class RoxApp extends Application {
             const score = await this._gameboard.play();
             this._resultBoard.updateValue(score)
 
-            await delay(2000); // wait a moment before showing the score
+            // wait a moment before showing the score
+            await delay(2000); 
 
-            await Promise.all([ // bring the results into view
+            // bring the results into view
+            await Promise.all([ 
                 this._gameboard.setFade(false),
                 this._resultBoard.setFade(true)
             ]);
 
+            // wait for the user to request replay before hiding the result board
             await this._resultBoard.awaitPress();
             await this._resultBoard.setFade(false);
         }

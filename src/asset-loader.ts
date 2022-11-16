@@ -14,6 +14,9 @@ const textureList = [
     { name: "resultboard", url: "resultsboard.png"}
 ] as Array<ITextureAsset>
 
+/**
+ * A simple asset loader. Loading assets from a config allows for some chances to be made without touching the code - however this would require some infrastructure to work
+ */
 export function loadAssets(): Promise<void>{
     const loader = Loader.shared;
     loader.baseUrl = "assets/";
@@ -23,7 +26,9 @@ export function loadAssets(): Promise<void>{
         loader.load(() => resolve());
     });
 }
-
+/**
+ * A wrapper method used to access textures on the loader, if the requested texture does not exist an error is thrown
+ */
 export function getTexture(textureName: string): Texture{
     const texture = Loader.shared.resources[textureName]?.texture;
     if (texture){

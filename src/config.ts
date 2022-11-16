@@ -1,5 +1,9 @@
 import { IApplicationOptions, TextStyle } from "pixi.js";
 
+/**
+ * A game config allows for components of the game to be fine tuned from a single location with no changes need in the code structure
+ * An attempt has been made throughout the code to emulate how I think components are positioned at Roxor.
+ */
 export const gameConfig = {
     request: {
         colourCount: 100
@@ -73,6 +77,9 @@ export const gameConfig = {
     }
 }
 
+/**
+ * The strings config allows text in the game to be easily updated - this is especially useful when deploying a game in multiple languages
+ */
 export const strings = {
     results: {
         message: "YOUR SCORE:",

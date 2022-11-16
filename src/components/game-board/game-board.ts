@@ -7,6 +7,9 @@ import { ColourWheel } from "./colour-wheel";
 import { ColourSelector } from "./colour-selector";
 import { TextFields } from "./text-fields";
 
+/**
+ * The game board represents the playable surface of the game. It is responsible for controlling child components and telling the application when play has ended
+ */
 export class Gameboard extends Container {
     private _backdrop: Sprite;
     private _colourSelector: ColourSelector;
@@ -67,7 +70,8 @@ export class Gameboard extends Container {
         while (this._inPlay){
             selection = this._colourSelector.selection;
             cycleColour = ticketModel.nextColour;
-            await this._colourWheel.cycleTo(cycleColour);
+            // the gameboard will allow an existing cycle to finish before moving to the results screen
+            await this._colourWheel.cycleTo(cycleColour); 
 
             if ( cycleColour === selection ){ // update score if selection matches ticket value
                 this._textFields.setScore(this._score += 1);

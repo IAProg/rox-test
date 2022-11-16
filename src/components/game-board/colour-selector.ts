@@ -2,6 +2,9 @@ import { Container, Sprite } from "pixi.js";
 import { getTexture } from "../../asset-loader";
 import { gameConfig } from "../../config";
 
+/**
+ * The colour selector presents a number of colour buttons. awaitSelection allows the gameboard to pause while the player makes their choice.
+ */
 export class ColourSelector extends Container {
     public selection: number;
 

@@ -1,6 +1,10 @@
 import { Container, Sprite } from "pixi.js";
 import { getTexture } from "../asset-loader";
 
+/**
+ * A simple background - this is used to fill the space behind the foreground components.
+ */
+
 export class Background extends Container {
     private _sprite: Sprite;
 

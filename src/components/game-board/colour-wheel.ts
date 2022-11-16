@@ -7,7 +7,6 @@ import { randomFloat, randomInt } from "../../utils";
 const TAU = Math.PI * 2;
 
 export class ColourWheel extends Container {
-
     private _cycleTL: gsap.core.Timeline;
     private _spinner: Graphics;
     private _frame: Sprite;
@@ -18,14 +17,13 @@ export class ColourWheel extends Container {
         super();
         const { radius } = gameConfig.disc;
 
-        this._spinner = new Graphics();
-
         const colourCount = gameConfig.colours.length;
         this._rotationStep = TAU / colourCount;
         const halfStep = this._rotationStep / 2;
-
+        
         // construct a graphic representing the spinner disc
         let index = 0;
+        this._spinner = new Graphics();
         for ( let i = 0; i < TAU; i+=this._rotationStep ){
             this._spinner.beginFill(gameConfig.colours[index])
             .drawPolygon([
@@ -47,7 +45,7 @@ export class ColourWheel extends Container {
     public async cycleTo(targetIndex: number): Promise<void>{
         const { spinsMin, spinsMax, missMin, missMax } = gameConfig.disc;
 
-        // calculate how far the selected index is from the top
+        // calculate how far the selected index is from the botton
         const currentIndex = (this._spinner.rotation / this._rotationStep);
         const gap = TAU - ((currentIndex * this._rotationStep) % TAU);
 
@@ -61,7 +59,6 @@ export class ColourWheel extends Container {
         const sign = Math.random() < 0.5 ? -1 : 1;
         const missRotation = (this._rotationStep * randomFloat(missMin, missMax));
         const firstRotation = endRotation + missRotation * sign;
-
 
         // these values should be propotional to rotation but have been capped at 2 seconds to meet spec
         const spinDuration = 1.50; 
